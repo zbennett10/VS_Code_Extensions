@@ -13,11 +13,18 @@ function activate(context) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    var disposable = vscode.commands.registerCommand('extension.sayHello', function () {
+    var disposable = vscode.commands.registerCommand('extension.wordCount', function () {
         // The code you place here will be executed every time your command is executed
+        var editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; //Text editor is not open
+        }
+
+        var allText = editor.document.getText();
+        var wordCount = allText.split(' ').length;
 
         // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+        vscode.window.showInformationMessage(`Word Count: ${wordCount}`);
     });
 
     context.subscriptions.push(disposable);

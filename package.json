@@ -1,7 +1,7 @@
 {
-    "name": "helloworld",
-    "displayName": "HelloWorld",
-    "description": "My firt vs code extension",
+    "name": "wordcount",
+    "displayName": "WordCount",
+    "description": "VS Code Extension that gets the current word count of the text ediotr.",
     "version": "0.0.1",
     "publisher": "zbennett10",
     "engines": {
@@ -11,13 +11,13 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.wordCount"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
+            "command": "extension.wordCount",
+            "title": "get word count"
         }]
     },
     "scripts": {
